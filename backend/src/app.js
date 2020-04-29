@@ -2,9 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const routes = require('./routes');
 const app = express();
+const { errors }= require('celebrate');
+
 app.use(cors());
 app.use(express.json());//converter em algo entendivel
 app.use(routes);
+app.use(errors());
 /**
  *
  * server.listen(port, hostname, () => {
@@ -57,6 +60,5 @@ app.use(routes);
    * 
    */
 
-app.listen(3333);//porta da aplicação
 
-
+module.exports =app;
